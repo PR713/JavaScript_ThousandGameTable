@@ -1,6 +1,8 @@
 const table = document.getElementById('table');
 const btnAddRows = document.getElementById('add-rows');
 const inputEl = document.getElementById('input-num-of-players');
+const sumDisplay = document.getElementById('sum-display');
+const sumsText = document.getElementById('sums-text');
 
 
 btnAddRows.addEventListener('click', () => {
@@ -11,12 +13,11 @@ btnAddRows.addEventListener('click', () => {
     for (let i = 0; i < numOfPlayers; i++) {
         let cell = document.createElement('td');
         let input = document.createElement('input');
+        input.type = 'text';
 
         if (table.rows.length === 0) {
-            input.type = 'text';
             input.placeholder = `Player ${i + 1}`;
         } else {
-            input.type = 'text';
             input.addEventListener('input', updateSums);
         }
 
@@ -31,6 +32,9 @@ btnAddRows.addEventListener('click', () => {
 function updateSums() {
     const rows = table.getElementsByTagName('tr');
     sums = new Array(Number(inputEl.value)).fill(0);
+    sumsText.style.display = 'block';
+    sumDisplay.style.display = 'table';
+
 
     for (let i = 1; i < rows.length; i++){
         const cells = rows[i].getElementsByTagName('td');
@@ -50,5 +54,18 @@ function updateSums() {
         }
     }
 
-    console.log(sums);
+    displaySums(sums);
+}
+
+function displaySums(sums) {
+    const numOfPlayers = Number(inputEl.value);
+    let html = '<tr>';
+
+    for (let i = 0; i < numOfPlayers; i++) {
+        html += `<td>${sums[i]}</td>`;
+    }
+
+    html += '</tr>';
+
+    sumDisplay.innerHTML = html;
 }
