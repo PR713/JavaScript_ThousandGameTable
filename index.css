@@ -1,7 +1,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 30px;
     background-color: #f4f4f4;
 }
 
@@ -9,12 +9,24 @@ body {
     margin-top: 30px;
 }
 
-#input-players {
-    max-width: 100px;
+
+#table tr:first-child td input {
     text-align: left;
+
+}
+
+
+#table tr:not(:first-child) td input {
+    text-align: right;
+}
+
+
+
+
+#input-num-of-players {
+    max-width: 100px;
 }
 
 input {
-    max-width: 50px;
-    text-align: right;
+    max-width: 60px;
 }
