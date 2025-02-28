@@ -41,6 +41,11 @@ clearBtn.addEventListener('click', () => { //dblclick
     lastClickTime = currentTime;
 })
 
+//possibly to add a property uuid to each row, and when deleting, to delete by uuid
+//as in react, search for in for nested by that property, save to local storage
+//end to sth like rerendering (in return in React, in JS we dont have reactivity)
+// the table we have to use loadTableFromLocalStorage(), because the we dont have
+//useState, and we lose const and let data state
 
 function addRow(numOfPlayers) {
     let row = document.createElement('tr')
