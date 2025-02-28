@@ -12,6 +12,7 @@ window.addEventListener('load', () => {
 
 btnAddRows.addEventListener('click', () => {
     const numOfPlayers = inputEl.value;
+    if (numOfPlayers === '') return; //if no input, do nothing
     addRow(numOfPlayers);
     saveTableToLocalStorage();
 })
