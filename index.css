@@ -1,7 +1,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    margin: 30px;
+    margin: 40px;
     background-color: #f4f4f4;
     color: #333;
 }
@@ -60,6 +60,7 @@ body {
     border-radius: 4px;
     border: 1px solid #aaa;
     outline: none;
+    text-align: right;
 }
 
 input {
@@ -102,7 +103,7 @@ button:hover {
 
 
 #sum-display td {
-    width: 81.5px;
+    min-width: 81.5px;
     padding-left: 5px;
     padding-right: 5px;
     text-align: right;
