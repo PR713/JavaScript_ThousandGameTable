@@ -12,7 +12,11 @@ window.addEventListener('load', () => {
 
 btnAddRows.addEventListener('click', () => {
     const numOfPlayers = inputEl.value;
-    if (numOfPlayers === '') return; //if no input, do nothing
+    if (numOfPlayers === '' || numOfPlayers <= 0) {
+        alert('Please enter a valid number of players');
+        return; //if no input or <= 0, do nothing
+    }
+
     addRow(numOfPlayers);
     saveTableToLocalStorage();
 })
@@ -121,7 +125,9 @@ function loadTableFromLocalStorage() {
     const tableData = JSON.parse(localStorage.getItem('tableData'));
     const numOfPlayers = localStorage.getItem('numOfPlayers');
 
-    if (tableData && numOfPlayers) { //available
+    if (tableData && numOfPlayers && numOfPlayers > 0) { //available and num > 0
+        //earlier checked where that function and save function are called,
+        //so this is for care
         inputEl.value = numOfPlayers;
 
         for (let rowIndex = 0; rowIndex < tableData.length; rowIndex++) {
