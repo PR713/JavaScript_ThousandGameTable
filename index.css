@@ -23,7 +23,6 @@ body {
 
 #table tr {
     border-bottom: 1px solid #ddd;
-    display: flex;
     align-items: center;
 
 }
