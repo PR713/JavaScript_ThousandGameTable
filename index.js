@@ -155,7 +155,8 @@ function saveTableToLocalStorage() {
         const cells = rows[i].getElementsByTagName('td');
         const rowData = [];
         const isFirstRow = (i === 0) //other rows have additional cell 'delete button'
-        for (let j = 0; j < (isFirstRow ? cells.length : cells.length - 1); j++) {
+        const cellsRange = (isFirstRow ? cells.length : cells.length - 1);
+        for (let j = 0; j < cellsRange; j++) {
             const input = cells[j].getElementsByTagName('input')[0];
             rowData.push(input.value);
         }
@@ -182,7 +183,8 @@ function loadTableFromLocalStorage() {
 
             const cells = table.rows[rowIndex].getElementsByTagName('td');
             const isFirstRow = (rowIndex === 0)
-            for (let colIndex = 0; colIndex < (isFirstRow ? cells.length : cells.length - 1); colIndex++) {
+            const cellsRange = (isFirstRow ? cells.length : cells.length - 1);
+            for (let colIndex = 0; colIndex < cellsRange; colIndex++) {
                 const input = cells[colIndex].getElementsByTagName('input')[0];
                 input.value = tableData[rowIndex][colIndex];
             }
